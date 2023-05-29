@@ -48,4 +48,6 @@ Pour construire l'image Docker et lancer le container de test, on exécute les c
 3. Accès au site vitrine
 Ouvrez un navigateur et accédez à **http://ip-machine**
 
+![ic-webapp](https://github.com/MozkaGit/devops-bootcamp-final/assets/43102748/2b5d3b92-b813-4e87-9458-7c5b0e7a0a29)
+
 4. Pousser l'image sur votre registre Docker Hub: `docker tag ic-webapp:1.0 <votre_nom_utilisateur_docker_hub>/ic-webapp:1.0 && docker push <votre_nom_utilisateur_docker_hub>/ic-webapp:1.0`
