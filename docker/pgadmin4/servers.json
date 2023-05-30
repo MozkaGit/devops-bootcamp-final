@@ -1,8 +1,8 @@
 {
     "Servers": {
         "1": {
-            "Name": "PostgresName",
-            "Group": "PostgresGroup",
+            "Name": "BDD_Odoo",
+            "Group": "ICGroup",
             "Port": 5432,
             "Username": "postgres",
             "Host": "BDD_Odoo",
