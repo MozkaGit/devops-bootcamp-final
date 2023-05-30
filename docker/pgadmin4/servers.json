@@ -1,0 +1,14 @@
+{
+    "Servers": {
+        "1": {
+            "Name": "PostgresName",
+            "Group": "PostgresGroup",
+            "Port": 5432,
+            "Username": "postgres",
+            "Host": "BDD_Odoo",
+            "SSLMode": "prefer",
+            "MaintenanceDB": "postgres"
+        }
+    }
+}
+

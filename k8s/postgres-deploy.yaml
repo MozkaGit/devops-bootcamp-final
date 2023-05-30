@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Pod
+metadata:
+  name: BDD_Odoo
+  namespace: icgroup
+  labels:
+    app: postgres
+    env: prod
+spec:
+  containers:
+  - name: postgres
+    image: postgres
+    ports:
+    - containerPort: 5432
+    env:
+    - name: POSTGRES_USER
+      value: odoo
+    - name: POSTGRES_PASSWORD
+      value: odoo
+    - name: POSTGRES_DB
+      value: postgres
