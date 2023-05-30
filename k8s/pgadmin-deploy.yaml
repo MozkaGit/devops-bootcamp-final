@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pgadmin
+  namespace: icgroup
+  labels:
+    app: pgadmin
+    env: prod
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: pgadmin-pod
+  template:
+    metadata:
+      labels:
+        app: pgadmin-pod
+    spec:
+      containers:
+      - image: dpage/pgadmin4
+        name: pgadmin
+        ports:
+        - containerPort: 80
+        env:
+        - name: PGADMIN_DEFAULT_EMAIL
+          value: mozkatraining@eazy.fr
+        - name: PGADMIN_DEFAULT_PASSWORD
+          value: password
+        volumeMounts:
+          - name: servers
+            mountPath: /pgadmin4/servers.json
+          - name: data
+            mountPath: /var/lib/pgadmin
+      volumes:
+        - name: servers
+          hostPath:
+            path: /home/vagrant/final-project/k8s/pgadmin4/servers.json
+        - name: data
+          hostPath:
+            path: /pgdata
+
+
+
+
+
+
+
+      #   - mountPath: /pgadmin4/servers.json
+      #     name: servers
+      #   - mountPath: /var/lib/pgadmin
+      #     name: data
+      # volumes:
+      # - name: servers
+      #   hostPath:
+      #       path: /pgadmin4/servers.json
+      # - name: data
+      #   hostPath:
+      #       path: /pgadmin-data
+      #       type: DirectoryOrCreate

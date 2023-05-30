@@ -1,21 +1,40 @@
 apiVersion: apps/v1
-kind: Pod
+kind: Deployment
 metadata:
-  name: BDD_Odoo
+  name: bdd-odoo
   namespace: icgroup
   labels:
     app: postgres
     env: prod
 spec:
-  containers:
-  - name: postgres
-    image: postgres
-    ports:
-    - containerPort: 5432
-    env:
-    - name: POSTGRES_USER
-      value: odoo
-    - name: POSTGRES_PASSWORD
-      value: odoo
-    - name: POSTGRES_DB
-      value: postgres
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: postgres
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+      - name: postgres
+        image: postgres
+        ports:
+        - containerPort: 5432
+        env:
+        - name: POSTGRES_DB
+          value: postgres
+        - name: POSTGRES_PASSWORD
+          value: odoo
+        - name: POSTGRES_USER
+          value: odoo
+        volumeMounts:
+        - mountPath: /var/lib/postgresql/data
+          name: db-volume
+      volumes:
+      - name: db-volume
+        hostPath:
+            path: /db-data
+            type: DirectoryOrCreate

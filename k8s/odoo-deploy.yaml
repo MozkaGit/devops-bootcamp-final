@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: Odoo_web
+  name: odoo-web
   namespace: icgroup
   labels:
     app: odoo
@@ -22,7 +22,16 @@ spec:
         app: odoo
     spec:
       containers:
-      - name: odoo
-        image: odoo:13.0
+      - image: odoo:13.0
+        name: odoo
         ports:
         - containerPort: 8069
+        volumeMounts:
+        - mountPath: /var/lib/odoo
+          name: odoo-volume
+      volumes:
+      - name: odoo-volume
+        hostPath:
+            path: /odoo-data
+            type: DirectoryOrCreate
+        
