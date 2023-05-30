@@ -24,14 +24,24 @@ spec:
       containers:
       - image: odoo:13.0
         name: odoo
+        securityContext:
+         runAsUser: 0
+         runAsGroup: 0
         ports:
         - containerPort: 8069
+        env:
+        - name: HOST
+          value: bdd-clusterip
+        - name: USER
+          value: odoo
+        - name: PASSWORD
+          value: odoo
         volumeMounts:
-        - mountPath: /var/lib/odoo
-          name: odoo-volume
+        - name: odoo-volume
+          mountPath: /var/lib/odoo
       volumes:
       - name: odoo-volume
         hostPath:
-            path: /odoo-data
-            type: DirectoryOrCreate
+          path: /odoo-data
+          type: DirectoryOrCreate
         

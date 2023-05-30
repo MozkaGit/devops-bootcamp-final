@@ -21,6 +21,9 @@ spec:
       containers:
       - image: dpage/pgadmin4
         name: pgadmin
+        securityContext:
+         runAsUser: 0
+         runAsGroup: 0
         ports:
         - containerPort: 80
         env:
@@ -36,26 +39,8 @@ spec:
       volumes:
         - name: servers
           hostPath:
-            path: /home/vagrant/final-project/k8s/pgadmin4/servers.json
+            path: /pgadmin4/servers.json
         - name: data
           hostPath:
-            path: /pgdata
-
-
-
-
-
-
-
-      #   - mountPath: /pgadmin4/servers.json
-      #     name: servers
-      #   - mountPath: /var/lib/pgadmin
-      #     name: data
-      # volumes:
-      # - name: servers
-      #   hostPath:
-      #       path: /pgadmin4/servers.json
-      # - name: data
-      #   hostPath:
-      #       path: /pgadmin-data
-      #       type: DirectoryOrCreate
+            path: /pg-data
+            type: DirectoryOrCreate
