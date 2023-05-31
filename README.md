@@ -59,7 +59,7 @@ Assurez-vous d'avoir Kubernetes installé et configuré localement.
 
 ### Étapes de déploiement
 
-Nous allons déployer les ressources avec `Kustomize` :
+Nous allons déployer les ressources avec [`Kustomize`](https://kustomize.io/) :
 
 1. Voici le contenu du fichier `kustomize.yaml` avec l'ordre de déploiement :
 
@@ -110,4 +110,4 @@ Veuillez noter que vous devrez adapter les fichiers de configuration YAML en fon
 
 `service-nodeport-pgadmin.yaml`: Crée un service de type NodePort pour accéder à l'interface de gestion des bases de données `pgAdmin` depuis l'extérieur.
 
-`kustomize`: Outil de configuration Kubernetes qui permet de séquencer les déploiements puis de déployer les ressources Kubernetes à l'aide de fichiers de configuration YAML.
+`kustomize`: Outil de configuration Kubernetes open-source qui permet la personnalisation et l’adaptation des fichiers de configuration YAML pour les déploiements applicatifs dans les clusters Kubernetes. En l'occurence nous l'utilisons pour séquencer le déploiements des ressources Kubernetes à l'aide d'un fichier de configuration YAML : `kustomization.yaml`.
