@@ -1,0 +1,15 @@
+{
+    "Servers": {
+        "1": {
+            "Name": "BDD_Odoo",
+            "Group": "ICGroup",
+            "Port": 5432,
+            "Username": "odoo",
+            "PassFile": "/pgadmin4/passfile",
+            "Host": "BDD_Odoo",
+            "SSLMode": "prefer",
+            "MaintenanceDB": "postgres"
+        }
+    }
+}
+
