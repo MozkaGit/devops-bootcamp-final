@@ -5,7 +5,7 @@
             "Group": "ICGroup",
             "Port": 5432,
             "Username": "odoo",
-            "Host": "BDD_Odoo",
+            "Host": "bdd-clusterip",
             "SSLMode": "prefer",
             "MaintenanceDB": "postgres"
         }
