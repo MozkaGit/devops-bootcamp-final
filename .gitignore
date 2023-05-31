@@ -1,6 +1,5 @@
-Readme.md
-projet_final.pdf
-releases.txt
-docker
-images2
+/app/Readme.md
+/app/projet_final.pdf
+/app/releases.txt
+/app/images2
 .gitignore

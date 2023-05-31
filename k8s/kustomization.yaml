@@ -1,10 +1,10 @@
 resources:
   - namespace.yaml
-  - service-clusterip-bdd.yaml
-  - service-nodeport-ic.yaml
-  - service-nodeport-odoo.yaml
-  - service-nodeport-pgadmin.yaml
-  - postgres-deploy.yaml
-  - pgadmin-deploy.yaml
-  - odoo-deploy.yaml
-  - ic-deploy.yaml
+  - ./postgres/service-clusterip-bdd.yaml
+  - ./ic-webapp/service-nodeport-ic.yaml
+  - ./odoo/service-nodeport-odoo.yaml
+  - ./pgadmin/service-nodeport-pgadmin.yaml
+  - ./postgres/postgres-deploy.yaml
+  - ./pgadmin/pgadmin-deploy.yaml
+  - ./odoo/odoo-deploy.yaml
+  - ./ic-webapp/ic-deploy.yaml
