@@ -12,6 +12,7 @@ pipeline {
             steps {
                 script {
                 sh '''
+                    cd jenkins
                     aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
                     aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
                     aws configure set region us-east-1
@@ -31,10 +32,10 @@ pipeline {
                 AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
             }
                 sh '''
+                    cd jenkins/odoo/
                     aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
                     aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
                     aws configure set region us-east-1
-                    cd odoo
                     eb init --region us-east-1 --platform Docker odoo_$BUILD_NUMBER
                     eb create odoo-env-$BUILD_NUMBER
                     eb status
