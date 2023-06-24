@@ -1,7 +1,7 @@
 version: '3.1'
 services:
   ic:
-      image: ic-webapp:1.0
+      image: mozkadocker/ic-webapp:1.0
       container_name: Ic-webapp
       depends_on:
         - pg
