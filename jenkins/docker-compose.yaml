@@ -1,0 +1,19 @@
+version: '3.1'
+services:
+  ic:
+      image: mozkadocker/ic-webapp:1.0
+      container_name: Ic-webapp
+      depends_on:
+        - pg
+        - db
+      environment:
+        - ODOO_URL=http://192.168.56.10:8080
+        - PGADMIN_URL=http://192.168.56.10:5050
+      ports:
+        - "80:8080"
+      networks:
+        - ic_network
+
+networks:
+  ic_network:
+    driver: bridge
