@@ -2,4 +2,5 @@
 /app/projet_final.pdf
 /app/releases.txt
 /app/images2
+docker-compose.yml.hold
 .gitignore

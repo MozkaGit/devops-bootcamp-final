@@ -1,6 +1,14 @@
 pipeline {
     agent none
     stages {
+        // stage('Build image') {
+        //     agent any
+        //     steps {
+        //         script {
+        //             sh 'docker build -t icwebapp .'
+        //         }
+        //     }
+        // }
         stage('Push IC Webapp and Pgadmin in deployment') {
             agent {
                 docker { image 'coxauto/aws-ebcli' }
@@ -12,7 +20,6 @@ pipeline {
             steps {
                 script {
                 sh '''
-                    cd jenkins
                     aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
                     aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
                     aws configure set region us-east-1
@@ -34,7 +41,6 @@ pipeline {
             steps {
                 script {
                 sh '''
-                    cd jenkins/odoo/
                     aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
                     aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
                     aws configure set region us-east-1
