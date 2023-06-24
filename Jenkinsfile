@@ -31,6 +31,8 @@ pipeline {
                 AWS_ACCESS_KEY_ID = credentials('AWS_ACCESS_KEY_ID')
                 AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
             }
+            steps {
+                script {
                 sh '''
                     cd jenkins/odoo/
                     aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
@@ -40,6 +42,8 @@ pipeline {
                     eb create odoo-env-$BUILD_NUMBER
                     eb status
                 '''
+                }
+            }
         }
     }
 }
