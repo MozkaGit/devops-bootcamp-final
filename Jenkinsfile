@@ -10,7 +10,7 @@ pipeline {
             agent any
             steps {
                 script {
-                    sh 'docker build -f app/Dockerfile -t $IMAGE_NAME:$BUILD_NUMBER .'
+                    sh 'docker build -t $IMAGE_NAME:$BUILD_NUMBER .'
                 }
             }
         }
