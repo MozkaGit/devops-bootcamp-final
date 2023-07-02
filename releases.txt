@@ -1,0 +1,3 @@
+ODOO_URL: 
+PGADMIN_URL: 
+version: 1.0
